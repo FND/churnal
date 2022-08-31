@@ -1,0 +1,25 @@
+{
+	"compilerOptions": {
+		"checkJs": true
+	},
+	"fmt": {
+		"files": {
+			"include": ["./src/generator"]
+		},
+		"options": {
+			"lineWidth": 90,
+			"useTabs": true,
+			"indentWidth": 4
+		}
+	},
+	"lint": {
+		"files": {
+			"include": ["./src/generator"]
+		}
+	},
+	"test": {
+		"files": {
+			"include": ["./src/generator"]
+		}
+	}
+}
