@@ -1,0 +1,16 @@
+image: denoland/deno:1.25.1
+
+stages:
+- deploy
+
+pages:
+    stage: deploy
+    script:
+    - mkdir public
+    - deno run --allow-read src/generator/index.ts ./content > ./public/index.html
+    artifacts:
+        paths:
+        - public
+    only:
+        variables:
+        - $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
