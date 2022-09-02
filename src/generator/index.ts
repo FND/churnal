@@ -1,6 +1,8 @@
+import { renderArticle } from "../article.ts";
 import { Article, ArticleError } from "./article.ts";
 import { parseCategories } from "./categories.ts";
 import { abort } from "./util.ts";
+import { renderDocument } from "./render.ts";
 
 const CATEGORIES = "CATEGORIES";
 
@@ -53,9 +55,11 @@ async function main() {
 		return;
 	}
 
+	const html = [];
 	for (const article of validArticles) {
-		console.log(article);
+		html.push(renderArticle(article));
 	}
+	console.log(await renderDocument(html.join("\n")));
 }
 
 async function parseContent(baseDir: string) {
